@@ -38,3 +38,9 @@ jobs:
           # ./bin/qmk --update
           python3 -m pip install --upgrade qmk
           python3 -m pip install -r qmk_firmware/requirements-dev.txt
+
+      - name: Build Firmware
+        run: |
+          #export PATH="$(pwd)/bin:$PATH"
+          remake git-submodule
+          #remake -j1 -O nick
