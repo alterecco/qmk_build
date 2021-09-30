@@ -31,3 +31,10 @@ jobs:
             && git fetch --all --tags \
             && cd .. \
             || { echo "FAILED" >&2 ; exit 1 ; }
+
+      - name: Install QMK CLI
+        run: |
+          # rm bin/qmk # GitHub actions doesn't like this, use the system-wide QMK CLI instead
+          # ./bin/qmk --update
+          python3 -m pip install --upgrade qmk
+          python3 -m pip install -r qmk_firmware/requirements-dev.txt
