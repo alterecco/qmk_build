@@ -44,3 +44,12 @@ jobs:
           #export PATH="$(pwd)/bin:$PATH"
           remake git-submodule
           #remake -j1 -O nick
+
+      - name: 'Upload binaries'
+        uses: actions/upload-artifact@v2
+        with:
+          name: Artifacts
+          path: |
+            qmk_firmware/*.bin
+            qmk_firmware/*.hex
+            qmk_firmware/*.uf2
